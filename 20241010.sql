@@ -36,8 +36,18 @@ CREATE TABLE 테이블_이름(
 	컬럼명3 데이터타입,
 	...
 );
+-- 데이터 타입
+-- 문자열 : CHAR(2000까지 지원), VARCHAR2(4000), CLOB(128TB)
+-- 숫자 : NUMBER(자리수, 소수점개수) -> 최대 38, FLOAT(128)
+-- 날짜 시간 : DATE(날짜/시간), TIMESTAMP(소수점까지 저장 가능 최대 9자리)
 
-
+-- PERSON 테이블
+-- 		이름 -> 문자열
+--		나이 -> 숫자
+CREATE TABLE PERSON(
+	PNAME VARCHAR2(30),
+	PAGE NUMBER(3)
+);
 
 
 
