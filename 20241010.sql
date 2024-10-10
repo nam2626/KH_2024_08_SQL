@@ -1,0 +1,20 @@
+-- 학생 테이블 생성
+-- 학번, 이름, 학과명, 평점
+CREATE TABLE STUDENT(
+	STD_NO CHAR(8),
+	STD_NAME VARCHAR2(50),
+	MAJOR_NAME VARCHAR2(50),
+	STD_SCORE NUMBER(3,2)
+);
+-- 데이터 추가
+INSERT INTO 
+STUDENT(STD_NO,STD_NAME,MAJOR_NAME,STD_SCORE)
+VALUES('20201111','홍길동','컴퓨터공학과',3.24);
+
+
+
+
+
+
+
+
