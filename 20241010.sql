@@ -49,6 +49,50 @@ CREATE TABLE PERSON(
 	PAGE NUMBER(3)
 );
 
+--데이터 5건 넣는 SQL문
+INSERT INTO PERSON(PNAME,PAGE) VALUES('John',25);
+INSERT INTO PERSON(PNAME,PAGE) VALUES('Emma',30);
+INSERT INTO PERSON(PNAME,PAGE) VALUES('Michael',40);
+INSERT INTO PERSON(PNAME,PAGE) VALUES('Sophia',20);
+--테이블에 모든 컬럼에 데이터를 저장, 테이블 생성시 작성한 컬럼 순서대로 데이터 작성
+INSERT INTO PERSON VALUES('김철수',35);
+
+--PERSON 테이블에 있는 모든 데이터를 조회
+SELECT * FROM PERSON;
+
+--나이가 4자리인 PERSON 데이터 추가
+INSERT INTO PERSON VALUES('김철수',3500);
+
+--PERSON 테이블 삭제 구문 --> 삭제시 모든 데이터가 날아간다.
+DROP TABLE PERSON;
+
+--컬럼에 기본값 설정
+CREATE TABLE PERSON(
+	PNAME VARCHAR2(30),
+	PAGE NUMBER(3) DEFAULT 30
+);
+--PAGE에 데이터를 않넣었기 때문에 기본값 지정한 30이 저장됨
+INSERT INTO PERSON(PNAME) VALUES('김철수');
+INSERT INTO PERSON(PNAME, PAGE) VALUES('김철수', NULL);
+
+--PERSON 테이블 데이터 삭제
+TRUNCATE TABLE PERSON;
+
+--학생 테이블 삭제
+DROP TABLE STUDENT;
+
+--학생 테이블
+-- 학번, 이름, 학과명, 평점
+CREATE TABLE STUDENT(
+	STD_NO CHAR(8) PRIMARY KEY, --기본키 설정을 할때
+	STD_NAME VARCHAR2(30) NOT NULL, --데이터를 반드시 입력을 받아야할 때
+	MAJOR_NAME VARCHAR2(30),
+	--데이터가 안들어 왔을때 기본값 0으로 설정, NULL이 올 수 없게끔 처리
+	STD_SCORE NUMBER(3,2) DEFAULT 0 NOT NULL 
+);
+
+--학생 데이터 5건 저장
+
 
 
 
