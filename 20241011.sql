@@ -52,8 +52,18 @@ EMPLOYEE(EMP_NO,EMP_NAME,EMP_POSITION,
 EMP_DEPARTMENT,EMP_SALARY,EMP_COURSE_DATE)
 VALUES('A20236666','박영훈','주임','개발부',48000000,'2024-01-05');
 
+--데이터 조회 : SELECT
+--SELECT 조회할 컬럼1, 조회할 컬럼2, .....
+--FROM 조회할 테이블1, 조회할 테이블2, .... 
+--WHERE 조건절
+--GROUP BY 그룹으로 묶을 컬럼1, 그룹으로 묶을 컬럼2, ... [HAVING 조건절] 
+--ORDER BY 정렬할 기준 컬럼1 [ASC | DESC], 정렬할 기준 컬럼2 [ASC | DESC] ...
+--전체 PERSON 데이터 조회
+SELECT * FROM PERSON;
+--조회할 컬럼을 다쓰는 SQL
+SELECT PNAME, PAGE FROM PERSON;
 
-
+SELECT PNAME AS 이름, PAGE AS 나이 FROM PERSON;
 
 
 
