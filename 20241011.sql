@@ -68,7 +68,38 @@ SELECT PNAME, LENGTH(PNAME) AS PNAME_LENGTH FROM PERSON;
 --학생 테이블에서 학과명만 조회
 --DISTINCT : 중복된 내용 제거해서 조회
 SELECT DISTINCT MAJOR_NAME FROM STUDENT;
+--조건절
+-- 관계연산자 : > < >= <= = <>
+-- 논리연산자 : NOT AND OR
+--PERSON 테이블에서 나이가 30이상인 사람만 조회
+SELECT * FROM PERSON WHERE PAGE >= 30;
+--PERSON 테이블에서 나이가 30이 아닌 사람만 조회
+SELECT * FROM PERSON WHERE PAGE != 30;
+SELECT * FROM PERSON WHERE PAGE <> 30;
+--PERSON 테이블에서 나이가 30대인 사람만 조회
+SELECT * FROM PERSON WHERE PAGE >= 30 AND PAGE <= 39;
+SELECT * FROM PERSON WHERE PAGE BETWEEN 30 AND 39;
+-- NOT 사용방법
+SELECT * FROM PERSON WHERE NOT PAGE < 30;
+--컬럼 IN(....) 해당 컬럼의 값이 IN 안에 존재하면 true, 아니면 false 
+--비교하는 연산자는 = 으로 비교한다.
+SELECT * FROM PERSON WHERE PAGE IN(30,32,33);
+SELECT * FROM PERSON WHERE PAGE NOT IN(30,32,33);
+--문자열 비교
+-- = 고정길이 비교시 남는 공백도 포함해서 비교
+-- LIKE 로 비교하면 완전일치, 문자열 패턴과 일치하는 문자열 검색
+SELECT * FROM PERSON WHERE PNAME LIKE '홍길동';
+SELECT * FROM PERSON WHERE PNAME = '홍길동';
+-- % 와일드 카드 문자, 글자개수가 0개 이상 올수 있다.
+-- 박으로 시작하는 문자열
+SELECT * FROM PERSON WHERE PNAME LIKE '박%';
+-- 씨로 끝나는 문자열
+SELECT * FROM PERSON WHERE PNAME LIKE '%씨';
+-- 김을 포함하는 문자열
+SELECT * FROM PERSON WHERE PNAME LIKE '%김%';
 
+SELECT * FROM PERSON WHERE PNAME LIKE '박_';
+SELECT * FROM PERSON WHERE PNAME LIKE '박__';
 
 
 
