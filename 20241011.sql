@@ -201,7 +201,8 @@ SET CAR_PRICE = CAR_PRICE * 0.7;
 --자동차 테이블에서 제조사가 Jeep인 데이터를 삭제하세요
 DELETE FROM CAR WHERE CAR_MAKER LIKE 'Jeep';
 
-
+--PERSON 테이블에서 PAGE에 있는 NULL값을 가진 레코드를 조회
+ 
 
 
 
