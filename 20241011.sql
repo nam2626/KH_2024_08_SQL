@@ -147,7 +147,12 @@ CREATE TABLE CAR(
 	CAR_MAKE_YEAR NUMBER(4),
 	CAR_PRICE NUMBER(5)
 );
-
+--MOCKAROO에서 샘플 데이터 작성하여 CAR 테이블에 저장하세요.
+--AI로도 CSV 만들어서 저장해도 됨
+SELECT * FROM CAR;
+--자동차 테이블에서 제조사가 BMW인 자동차를 조회
+--ROWNUM은 행 번호
+SELECT ROWNUM, C.* FROM CAR C WHERE CAR_MAKER LIKE 'BMW';
 
 
 
