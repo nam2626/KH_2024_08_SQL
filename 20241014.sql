@@ -240,8 +240,12 @@ SELECT CONCAT(SUBSTR(STD_NO,1,4), '****'),
 FROM STUDENT;
 --사원 테이블에서 데이터 조회시 연봉 순위를 조회, 입사일은 입사년도만 출력
 --연봉을 출력시 천단위 기호가 붙게끔 처리, 순위는 건너뛰지 않습니다.
-
-
+SELECT
+	DENSE_RANK() OVER(ORDER BY EMP_SALARY DESC) AS SALARY_RANK,
+ 	EMP_NO, EMP_NAME ,
+ 	TO_CHAR(EMP_COURSE_DATE, 'YYYY') AS COURSE_YEAR,
+ 	TO_CHAR(EMP_SALARY,'FM999,999,999,999') AS SALARY 	
+FROM EMPLOYEE;
 
 --학생 테이블에서 성씨별로 점수 순위를 내림 차순 기준으로 조회하시오.
 --출력 형태는 아래와 같이 조회하세요. 순위는 건너뛰지 않습니다.
