@@ -229,9 +229,19 @@ FROM STUDENT S;
 
 --학생 테이블에서 학생정보 조회시 
 --학번의 경우 앞에 4자리만 표현하고 나머지 4자리는 마스킹 처리 해서 조회
-
+SELECT SUBSTR(STD_NO,1,4) || '****',
+	STD_NEW_NAME , MAJOR_NAME ,STD_SCORE 
+FROM STUDENT;
+SELECT RPAD(SUBSTR(STD_NO,1,4),8,'*'),
+	STD_NEW_NAME , MAJOR_NAME ,STD_SCORE 
+FROM STUDENT;
+SELECT CONCAT(SUBSTR(STD_NO,1,4), '****'),
+	STD_NEW_NAME , MAJOR_NAME ,STD_SCORE 
+FROM STUDENT;
 --사원 테이블에서 데이터 조회시 연봉 순위를 조회, 입사일은 입사년도만 출력
 --연봉을 출력시 천단위 기호가 붙게끔 처리, 순위는 건너뛰지 않습니다.
+
+
 
 --학생 테이블에서 성씨별로 점수 순위를 내림 차순 기준으로 조회하시오.
 --출력 형태는 아래와 같이 조회하세요. 순위는 건너뛰지 않습니다.
