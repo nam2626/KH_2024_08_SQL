@@ -250,6 +250,20 @@ FROM EMPLOYEE;
 --학생 테이블에서 성씨별로 점수 순위를 내림 차순 기준으로 조회하시오.
 --출력 형태는 아래와 같이 조회하세요. 순위는 건너뛰지 않습니다.
 --순위 학번 성씨 학과명 평점
+SELECT 
+	DENSE_RANK() OVER(PARTITION BY SUBSTR(S.STD_NEW_NAME,1,1) 
+		ORDER BY S.STD_SCORE) AS SCORE_RANK ,S.*
+FROM STUDENT S
+--WHERE S.STD_SCORE >= 3
+;
+--입학한 년도 별로 순위 구하기
+SELECT 
+	DENSE_RANK() OVER(PARTITION BY SUBSTR(S.STD_NO,1,4) 
+		ORDER BY S.STD_SCORE) AS SCORE_RANK ,S.*
+FROM STUDENT S;
+
+
+
 
 
 
