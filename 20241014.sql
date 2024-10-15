@@ -84,7 +84,10 @@ SELECT TRUNC(123.456,2) FROM DUAL;
 SELECT MOD(6,4) FROM DUAL;
 --POWER(N,M) : N의 M승
 SELECT POWER(2,10) FROM DUAL;
-
+--TO_NUMBER('문자열') : 문자열을 숫자로 바꿔주는 함수
+SELECT 123 + '123', '123' / '3' FROM DUAL;
+SELECT TO_NUMBER('123') / '3' FROM DUAL;
+-----------------------------------------------
 
 
 
