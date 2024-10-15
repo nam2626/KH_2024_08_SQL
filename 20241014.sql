@@ -88,7 +88,11 @@ SELECT POWER(2,10) FROM DUAL;
 SELECT 123 + '123', '123' / '3' FROM DUAL;
 SELECT TO_NUMBER('123') / '3' FROM DUAL;
 -----------------------------------------------
-
+--날짜시간
+SELECT SYSDATE FROM DUAL;
+--오라클에서 지정된 현재 날짜 시간의 출력 포멧을 변경 - 현재 연결된 세션에서만 가능
+ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS';
+ALTER SESSION SET NLS_DATE_FORMAT = 'YY/MM/DD';
 
 
 
