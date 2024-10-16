@@ -100,6 +100,59 @@ SELECT
 	SUM(STD_SCORE) AS STD_SUM_SCORE
 FROM STUDENT;
 
+-- CUBE 함수
+-- 제공된 모든 컬럼의 모든 조합에 대한 집계 결과를 생성하는 함수
+-- CUBE(A,B)
+-- A, B에 대한 집계
+-- A에 대한 집계
+-- B에 대한 집계
+-- 전체 집계
+-- CUBE(A,B,C)
+-- A, B, C에 대한 집계
+-- A, B에 대한 집계
+-- A, C에 대한 집계
+-- B, C에 대한 집계
+-- A에 대한 집계
+-- B에 대한 집계
+-- C에 대한 집계
+-- 전체 집계
+SELECT 
+	SUBSTR(STD_NO,1,4) AS YEAR, STD_MAJOR, STD_GENDER,
+	COUNT(*) AS STD_COUNT, 
+	TRUNC(AVG(STD_SCORE),2) AS STD_AVG_SCORE,
+	SUM(STD_SCORE) AS STD_SUM_SCORE
+FROM STUDENT
+GROUP BY CUBE(SUBSTR(STD_NO,1,4), STD_MAJOR, STD_GENDER) ;
+
+--ROLLUP
+--계층적인 데이터 집계를 생성
+--상위 수준의 요약 정보를 점점 상세한 수준으로 내려가면서 데이터를 집계
+--ROLLUP(A,B)
+--	A, B에 대한 집계 결과
+--	A에 대한 집계 결과
+--	전체 결과
+--ROLLUP(A,B,C)
+--	A, B, C에 대한 집계 결과
+--	A, B에 대한 집계 결과
+--	A에 대한 집계 결과
+--	전체 결과
+SELECT 
+	SUBSTR(STD_NO,1,4) AS YEAR, STD_MAJOR, STD_GENDER,
+	COUNT(*) AS STD_COUNT, 
+	TRUNC(AVG(STD_SCORE),2) AS STD_AVG_SCORE,
+	SUM(STD_SCORE) AS STD_SUM_SCORE
+FROM STUDENT
+GROUP BY ROLLUP(SUBSTR(STD_NO,1,4), STD_MAJOR, STD_GENDER) ;
+
+--입학년도, 학과별, 성씨를 기준으로 학생 인원수, 평점 평균을 출력
+--단 입학년도는 학번 1~4자리, 평점의 평균 소수 둘째짜리에서 절삭
+
+
+
+
+
+
+
 
 
 
