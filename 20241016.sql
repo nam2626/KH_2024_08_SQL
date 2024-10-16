@@ -33,10 +33,37 @@ SELECT MAJOR_NAME, COUNT(*)
 FROM STUDENT
 GROUP BY MAJOR_NAME HAVING COUNT(*) >= 3;
 
+--학생 테이블 제거 후 아래 테이블로 생성 후 샘플데이터 저장
+--student_sample_data_updated.csv 테이블에 추가
+CREATE TABLE STUDENT(
+	STD_NO CHAR(8) PRIMARY KEY,
+	STD_NAME VARCHAR2(30) NOT NULL,
+	STD_MAJOR VARCHAR2(30),
+	STD_SCORE NUMBER(3,2) DEFAULT 0 NOT NULL,
+    STD_GENDER CHAR(1)
+);
 
+DROP TABLE STUDENT;
 
+--입학한 년도별, 학과별, 성별로 인원수, 평점 평균, 평점 총합를 조회하세요.
+SELECT 
+	SUBSTR(STD_NO,1,4) AS YEAR, STD_MAJOR, STD_GENDER,
+	COUNT(*) AS STD_COUNT, 
+	TRUNC(AVG(STD_SCORE),2) AS STD_AVG_SCORE,
+	SUM(STD_SCORE) AS STD_SUM_SCORE
+FROM STUDENT
+GROUP BY SUBSTR(STD_NO,1,4), STD_MAJOR, STD_GENDER ;
+--입학한 년도별, 학과별로 인원수, 평점 평균, 평점 총합를 조회하세요.
 
+--입학한 년도별, 인원수, 평점 평균, 평점 총합를 조회하세요.
 
+--학과별로 인원수, 평점 평균, 평점 총합를 조회하세요.
+
+--학과별, 성별로 인원수, 평점 평균, 평점 총합를 조회하세요.
+
+--성별로 인원수, 평점 평균, 평점 총합를 조회하세요.
+
+--전체 인원수, 평점 평균, 평점 총합를 조회하세요.
 
 
 
