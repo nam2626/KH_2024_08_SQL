@@ -18,9 +18,17 @@ FROM STUDENT
 GROUP BY MAJOR_NAME;
 
 -- 학과별 인원수를 조회, 평점이 3.0 이상인 학생들만 조회
+SELECT MAJOR_NAME, COUNT(*)
+FROM STUDENT
+WHERE STD_SCORE >= 3.0
+GROUP BY MAJOR_NAME;
 
-
-
+--학과별 인원수 조회시 학과 평균 점수가 3.5 이하인 학과만 조회
+SELECT MAJOR_NAME, COUNT(*), AVG(STD_SCORE)
+FROM STUDENT
+GROUP BY MAJOR_NAME HAVING AVG(STD_SCORE) <= 3.5;
+--현재 학생 테이블에 있는 데이터를 기준으로 학과별, 인원수를 조회
+--단 조회하는 인원수가 3명 이상인 학과만 조회
 
 
 
