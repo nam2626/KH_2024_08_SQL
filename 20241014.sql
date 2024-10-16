@@ -267,6 +267,26 @@ SELECT
 		MAJOR_NAME ORDER BY S.STD_SCORE) AS SCORE_RANK ,S.*
 FROM STUDENT S;
 
+--NULL 값 처리하는 함수
+--첫번째 값이 NULL일때 두번째 값을 리턴, NULL이 아니면 그냥 현재값을 리턴
+SELECT NVL(NULL,'널값'), NVL('100','널값') FROM DUAL;
+--첫번째 값이 NULL일때 3번째 값을 리턴, NULL이 아닐때 2번째 값을 리턴
+SELECT NVL2(NULL,'널이 아닐때 값','널일때 값'), 
+	NVL2('100','널이 아닐때 값','널일때 값') 
+FROM DUAL;
+-- 첫번째 값을 가지고 매칭 되는 값의 오른쪽에 있는 데이터를 리턴
+-- 매칭 되는 값이 없으면 마지막 값을 리턴
+SELECT DECODE(1,1,'A',2,'B','C') FROM DUAL; 
+SELECT DECODE(2,1,'A',2,'B','C') FROM DUAL; 
+SELECT DECODE(4,1,'A',2,'B',3,'C',4,'D','F') FROM DUAL; 
+
+
+
+
+
+
+
+
 
 
 
