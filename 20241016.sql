@@ -29,6 +29,15 @@ FROM STUDENT
 GROUP BY MAJOR_NAME HAVING AVG(STD_SCORE) <= 3.5;
 --현재 학생 테이블에 있는 데이터를 기준으로 학과별, 인원수를 조회
 --단 조회하는 인원수가 3명 이상인 학과만 조회
+SELECT MAJOR_NAME, COUNT(*)
+FROM STUDENT
+GROUP BY MAJOR_NAME HAVING COUNT(*) >= 3;
+
+
+
+
+
+
 
 
 
