@@ -1,0 +1,13 @@
+--그룹함수
+--	테이블에 있는 데이터를 특정 컬럼을 기준으로 통계값을 구하는 함수
+--	윈도우 함수의 PARTITION 처럼 특정 컬럼에 동일한 데이터들을 묶어서 통계값 구함
+--	예> 학생 테이블에서 학과별 평점의 평균, 학과별 인원수
+--	SUM, AVG, COUNT, MAX, MIN, STDDEV, VARIANCE
+--학과별 평점의 총합을 조회
+SELECT MAJOR_NAME, SUM(STD_SCORE)
+FROM STUDENT
+GROUP BY MAJOR_NAME;
+--학과별 평점의 평균을 조회
+SELECT MAJOR_NAME, TRUNC(AVG(STD_SCORE),2)
+FROM STUDENT
+GROUP BY MAJOR_NAME;
