@@ -248,7 +248,13 @@ ON C.CAR_MARKER_CODE = CM.CAR_MARKER_CODE
 GROUP BY CM.CAR_MAKER_NAME;
 
 --자동차 제조사별, 제조년도별, 출시된 제품 개수를 조회 
---단, 금액이 10000이상인 것들만 대상으로 잡음
+--단, 금액이 30000이상인 것들만 대상으로 잡음
+SELECT
+	CM.CAR_MAKER_NAME, C.CAR_MAKE_YEAR, COUNT(*) AS CAR_EA 
+FROM CAR C JOIN CAR_MAKER CM 
+ON C.CAR_MARKER_CODE = CM.CAR_MARKER_CODE
+WHERE C.CAR_PRICE >= 30000
+GROUP BY CM.CAR_MAKER_NAME, C.CAR_MAKE_YEAR ;
 
 --자동차 판매 정보 조회
 --판매 번호, 판매된 모델명, 판매일, 판매개수, 판매금액
