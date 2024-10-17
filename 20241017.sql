@@ -109,6 +109,44 @@ STUDENT S JOIN STUDENT_SCHOLARSHIP SS
 ON S.STD_NO = SS.STD_NO;
 --장학금을 받는 학생 정보만 조회
 --	학번, 이름, 학과명, 평점, 성별, 받은 금액
+SELECT 
+	S.STD_NO, S.STD_NAME, S.STD_SCORE, 
+	S.STD_GENDER, SS.MONEY, M.MAJOR_NAME 
+FROM 
+STUDENT_SCHOLARSHIP SS JOIN STUDENT S  
+ON S.STD_NO = SS.STD_NO
+JOIN MAJOR M ON S.MAJOR_NO = M.MAJOR_NO;
+
+--학과 테이블 데이터를 2건 추가
+INSERT INTO MAJOR VALUES('A9', '국어국문학과');
+INSERT INTO MAJOR VALUES('B2', '생활체육학과');
+
+--외부 조인(Outter Join)
+--조인 조건에 맞지 않는 행도 결과에 포함시킬때 사용하는 조인
+SELECT A.*, B.*
+FROM A LEFT OUTER JOIN B ON A.CODE = B.CODE;
+
+SELECT A.*, B.*
+FROM A RIGHT OUTER JOIN B ON A.CODE = B.CODE;
+
+SELECT A.*, B.*
+FROM A FULL OUTER JOIN B ON A.CODE = B.CODE;
+
+-- 학생 정보 출력시 학생테이블, 학과 테이블에 있는 모든 데이터를 조회
+-- 모든 컬럼 조회, 연결되지 않는 학과도 전부 조회
+SELECT S.*, M.*
+FROM STUDENT S RIGHT OUTER JOIN MAJOR M
+ON S.MAJOR_NO = M.MAJOR_NO;
+-- 학생이 한명도 없는 학과를 조회
+-- 일치하지 않는 데이터를 조회 --> 불일치 쿼리
+SELECT M.*, S.STD_NO 
+FROM MAJOR M LEFT OUTER JOIN STUDENT S 
+ON M.MAJOR_NO = S.MAJOR_NO
+WHERE S.STD_NO IS NULL;
+
+--장학금을 받지 못한 학생들의 정보를 조회
+
+
 
 
 
