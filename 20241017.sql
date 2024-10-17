@@ -91,6 +91,26 @@ SELECT
 FROM PRODUCT P , MANUFACTURER M
 WHERE P.MANUFACTURER_ID = M.MANUFACTURER_ID; 
 
+--장학금 테이블
+CREATE TABLE STUDENT_SCHOLARSHIP(
+    SCHOLARSHIP_NO NUMBER,
+    STD_NO CHAR(8),
+    MONEY NUMBER
+);
+
+--샘플 데이터 30건
+--student_money.csv로 추가
+
+--장학금을 받는 학생 정보만 조회
+SELECT 
+	S.STD_NO, S.STD_NAME, S.STD_SCORE, S.STD_GENDER, SS.MONEY 
+FROM 
+STUDENT S JOIN STUDENT_SCHOLARSHIP SS 
+ON S.STD_NO = SS.STD_NO;
+--장학금을 받는 학생 정보만 조회
+--	학번, 이름, 학과명, 평점, 성별, 받은 금액
+
+
 
 
 
