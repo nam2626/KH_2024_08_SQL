@@ -1,4 +1,7 @@
 --조인
+-- 여러개의 테이블에서 필요한 데이터를 조회하기위해
+-- 테이블 결합해서 조회하기 위한 연산.
+-- 조인을 할려면 테이블 끼리 연결 될 수있는 동일한 데이터를 가지고 있는 컬럼이 있어야됨
 CREATE TABLE A(
 	CODE CHAR(1),
 	VAL NUMBER(1)
@@ -21,12 +24,15 @@ SELECT * FROM A;
 SELECT * FROM B;
 
 --동일 조인
+-- 같은 값을 기준으로 결합
 SELECT A.CODE, A.VAL, B.CODE, B.UNIT 
 FROM A, B
 WHERE A.CODE = B.CODE; 
 
+--INNER JOIN
+--   조인 조건을 만족하는 모든 행을 결합
 SELECT A.CODE, A.VAL, B.CODE, B.UNIT 
-FROM A INNER JOIN B ON A.CODE = B.CODE;
+FROM A INNER JOIN B ON A.CODE <> B.CODE;
 
 SELECT A.CODE, A.VAL, B.CODE, B.UNIT 
 FROM A JOIN B ON A.CODE = B.CODE;
@@ -70,7 +76,6 @@ SELECT S.STD_NO, S.STD_NAME, M.MAJOR_NAME, S.STD_SCORE
 FROM STUDENT S JOIN MAJOR M ON S.MAJOR_NO = M.MAJOR_NO;
 
 SELECT * FROM STUDENT NATURAL JOIN MAJOR;
-
 
 
 
