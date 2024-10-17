@@ -247,9 +247,14 @@ FROM CAR C JOIN CAR_MAKER CM
 ON C.CAR_MARKER_CODE = CM.CAR_MARKER_CODE
 GROUP BY CM.CAR_MAKER_NAME;
 
+--자동차 제조사별, 제조년도별, 출시된 제품 개수를 조회 
+--단, 금액이 10000이상인 것들만 대상으로 잡음
 
+--자동차 판매 정보 조회
+--판매 번호, 판매된 모델명, 판매일, 판매개수, 판매금액
 
-
+--한번도 판매되지 않은 자동차 목록 조회
+--자동차 번호, 자동차 모델명, 제조사명, 제조년도, 금액
 
 
 
