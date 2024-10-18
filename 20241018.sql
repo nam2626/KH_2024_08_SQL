@@ -149,9 +149,11 @@ WHERE
 				 (SELECT MIN(STD_SCORE) FROM STUDENT));
 
 --평균 이하인 학생들의 평점을 0.5점 증가
+UPDATE STUDENT SET STD_SCORE = STD_SCORE + 0.5
+WHERE STD_SCORE <= (SELECT AVG(STD_SCORE) FROM STUDENT);
 
-
-
+--장학금을 받는 학생들만조회
+--학번, 이름, 학과명, 평점 받는 금액
 				
 				
 				
