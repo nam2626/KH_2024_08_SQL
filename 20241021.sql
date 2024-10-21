@@ -99,6 +99,18 @@ NOCYCLE;
 SELECT SEQ_ORDER_NO.NEXTVAL FROM DUAL;
 DROP SEQUENCE SEQ_ORDER_NO;
 
+--VIEW(뷰)
+--SQL에 하나의 이상의 테이블의 조회 결과를 저장한 가상 테이블, 스토리지 용량 X
+--실제 데이터를 저장하지 않고, 쿼리의 결과를 미리 정의해 두어 필요할때 재사용
+--CREATE OR REPLACE VIEW 뷰이름
+--AS
+--조회할 SQL문(SELECT문)
+
+--학생 정보 조회, 학번, 이름, 학과명, 평점, 성별 조회하는 조회문 작성
+
+
+
+
 
 
 
