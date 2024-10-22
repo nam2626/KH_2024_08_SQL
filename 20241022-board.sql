@@ -75,89 +75,52 @@ ADD CONSTRAINT PK_BOARD_COMMENT_LIKE PRIMARY KEY (id,cno);
 ALTER TABLE board_comment_hate 
 ADD CONSTRAINT PK_BOARD_COMMENT_HATE PRIMARY KEY (id,cno);
 
-ALTER TABLE board ADD CONSTRAINT FK_board_member_TO_board_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board ADD CONSTRAINT board_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_content_like ADD CONSTRAINT FK_board_TO_board_content_like_1 FOREIGN KEY (
-	bno
-)
-REFERENCES board (
-	bno
-);
+ALTER TABLE board_content_like 
+ADD CONSTRAINT bcl_fk_bno FOREIGN KEY (bno)
+REFERENCES board (bno);
 
-ALTER TABLE board_content_like ADD CONSTRAINT FK_board_member_TO_board_content_like_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board_content_like 
+ADD CONSTRAINT bcl_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_content_hate ADD CONSTRAINT FK_board_TO_board_content_hate_1 FOREIGN KEY (
-	bno
-)
-REFERENCES board (
-	bno
-);
+ALTER TABLE board_content_hate 
+ADD CONSTRAINT bch_fk_bno FOREIGN KEY (bno)
+REFERENCES board (bno);
 
-ALTER TABLE board_content_hate ADD CONSTRAINT FK_board_member_TO_board_content_hate_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board_content_hate 
+ADD CONSTRAINT bch_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_file ADD CONSTRAINT FK_board_TO_board_file_1 FOREIGN KEY (
-	bno
-)
-REFERENCES board (
-	bno
-);
+ALTER TABLE board_file 
+ADD CONSTRAINT board_file_fk_bno FOREIGN KEY (bno)
+REFERENCES board (bno);
 
-ALTER TABLE board_comment ADD CONSTRAINT FK_board_TO_board_comment_1 FOREIGN KEY (
-	bno
-)
-REFERENCES board (
-	bno
-);
+ALTER TABLE board_comment 
+ADD CONSTRAINT board_comment_fk_bno FOREIGN KEY (bno)
+REFERENCES board (bno);
 
-ALTER TABLE board_comment ADD CONSTRAINT FK_board_member_TO_board_comment_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board_comment 
+ADD CONSTRAINT board_comment_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_comment_like ADD CONSTRAINT FK_board_member_TO_board_comment_like_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board_comment_like 
+ADD CONSTRAINT bcml_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_comment_like ADD CONSTRAINT FK_board_comment_TO_board_comment_like_1 FOREIGN KEY (
-	cno
-)
-REFERENCES board_comment (
-	cno
-);
+ALTER TABLE board_comment_like 
+ADD CONSTRAINT bcml_fk_cno FOREIGN KEY (cno)
+REFERENCES board_comment (cno);
 
-ALTER TABLE board_comment_hate ADD CONSTRAINT FK_board_member_TO_board_comment_hate_1 FOREIGN KEY (
-	id
-)
-REFERENCES board_member (
-	id
-);
+ALTER TABLE board_comment_hate 
+ADD CONSTRAINT bcmh_fk_id FOREIGN KEY (id)
+REFERENCES board_member (id);
 
-ALTER TABLE board_comment_hate ADD CONSTRAINT FK_board_comment_TO_board_comment_hate_1 FOREIGN KEY (
-	cno
-)
-REFERENCES board_comment (
-	cno
-);
+ALTER TABLE board_comment_hate 
+ADD CONSTRAINT bcmh_fk_cno FOREIGN KEY (cno)
+REFERENCES board_comment (cno);
 --3. 시퀸스 생성
 
 --4. 샘플 데이터 저장
