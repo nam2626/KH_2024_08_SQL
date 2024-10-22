@@ -124,6 +124,24 @@ REFERENCES board_comment (cno);
 
 --3. 시퀸스 생성
 
+
 --4. 샘플 데이터 저장
+--암호화
+SELECT standard_hash('암호화할 데이터','SHA512'), 
+	LENGTHB(standard_hash('암호화할 데이터','SHA512')) FROM dual;
+SELECT standard_hash('123456','SHA512'),
+	LENGTHB(standard_hash('123456','SHA512')) FROM dual;
+SELECT standard_hash('123456','SHA256'),
+	LENGTHB(standard_hash('123456','SHA256')) FROM dual;
+SELECT standard_hash('123456','SHA1'),
+	LENGTHB(standard_hash('123456','SHA1')) FROM dual;
+
+
+
+
+
+
+
+
 
 
