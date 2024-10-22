@@ -121,6 +121,7 @@ REFERENCES board_member (id);
 ALTER TABLE board_comment_hate 
 ADD CONSTRAINT bcmh_fk_cno FOREIGN KEY (cno)
 REFERENCES board_comment (cno);
+
 --3. 시퀸스 생성
 
 --4. 샘플 데이터 저장
