@@ -146,7 +146,20 @@ SELECT standard_hash('123456','SHA1'),
 
 TRUNCATE TABLE BOARD;
 
-
+--전체 게시글 조회
+--글번호, 제목, 작성자, 작성자 닉네임, 조회수, 작성일, 글내용
+SELECT B.*, BM.NICKNAME 
+FROM BOARD B JOIN BOARD_MEMBER BM ON B.ID = BM.ID;
+--글번호, 제목, 작성자, 작성자 닉네임, 조회수, 작성일, 글내용, 좋아요, 싫어요
+--글 번호별 좋아요 개수 조회
+SELECT BNO, COUNT(*) AS BLIKE
+FROM BOARD_CONTENT_LIKE
+GROUP BY BNO;
+--글 번호별 싫어요 개수 조회
+SELECT BNO, COUNT(*) AS BHATE
+FROM BOARD_CONTENT_HATE
+GROUP BY BNO;
+--전체 게시글과 위에 2개 SQL문을 조합
 
 
 
