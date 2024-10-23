@@ -123,8 +123,16 @@ ADD CONSTRAINT bcmh_fk_cno FOREIGN KEY (cno)
 REFERENCES board_comment (cno);
 
 --3. 시퀸스 생성
-
-
+--글번호 1~
+CREATE SEQUENCE SEQ_BOARD_BNO;
+--댓글번호 1~
+CREATE SEQUENCE SEQ_BOARD_COMMENT_CNO;
+--파일번호 1~999999999 
+CREATE SEQUENCE SEQ_BOARD_FILE_FNO
+START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 999999999;
 --4. 샘플 데이터 저장
 --암호화
 SELECT standard_hash('암호화할 데이터','SHA512'), 
@@ -136,7 +144,7 @@ SELECT standard_hash('123456','SHA256'),
 SELECT standard_hash('123456','SHA1'),
 	LENGTHB(standard_hash('123456','SHA1')) FROM dual;
 
-
+TRUNCATE TABLE BOARD;
 
 
 
