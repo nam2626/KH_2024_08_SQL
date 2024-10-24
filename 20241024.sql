@@ -98,12 +98,24 @@ IS
 BEGIN
 	TOTAL := 0;
 	I := N1;
+
+--	LOOP
+--		TOTAL := TOTAL + I;
+--		I := I + 1;
+--		EXIT WHEN I > N2;		
+--	END LOOP;
+
+--	WHILE(I <= N2)
+--	LOOP
+--		TOTAL := TOTAL + I;
+--		I := I + 1;
+--	END LOOP;
+
+	FOR I IN N1 .. N2
 	LOOP
 		TOTAL := TOTAL + I;
-		I := I + 1;
-		EXIT WHEN I > N2;		
-	END LOOP;
-	
+	END LOOP
+
 	RETURN TOTAL;
 END;
 SELECT GET_TOTAL(1,100) FROM DUAL;
