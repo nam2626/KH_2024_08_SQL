@@ -197,3 +197,16 @@ DROP TRIGGER UPDATE_MAJOR_LOG;
 DROP TRIGGER DELETE_MAJOR_TRIGGER;
 
 SELECT * FROM DATA_LOG;
+
+--접속한 사용자 확인
+SELECT SYS_CONTEXT('USERENV','SESSION_USER') FROM DUAL;
+
+--사용자 생성
+--resource, connect 권한 부여
+create user c##user identified by 123456;
+grant connect, resource to c##user;
+alter user c##user default tablespace users quota 
+unlimited on users;
+--c##user 계정에 C##SCOTT.MAJOR 테이블에 대한 권한 부여
+grant 
+	insert, update, delete, select on C##SCOTT.major to c##user;
