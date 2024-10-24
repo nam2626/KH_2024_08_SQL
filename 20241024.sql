@@ -62,6 +62,35 @@ SELECT
 	GET_SCORE_GRADE(-85)
 FROM
 	DUAL;
+-----------------------------------
+--학과 번호를 받아서 학과명을 리턴하는 함수
+-----------------------------------
+CREATE OR REPLACE FUNCTION GET_MAJOR_NAME(V_MAJOR_NO IN VARCHAR2)
+RETURN VARCHAR2
+IS 
+	MSG VARCHAR2(30);
+BEGIN
+	SELECT
+		M.MAJOR_NAME INTO MSG
+	FROM
+		MAJOR M
+	WHERE
+		M.MAJOR_NO = V_MAJOR_NO;
+	RETURN MSG;
+END;
+
+SELECT GET_MAJOR_NAME('03') FROM DUAL;
+SELECT
+		M.MAJOR_NAME
+	FROM
+		MAJOR M
+	WHERE
+		M.MAJOR_NO = '03';
+
+
+
+
+
 
 
 
